@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "chungus-microscope.sln"
+    "dotnet.defaultSolution": "ChungusMicroscope.sln"
 }
