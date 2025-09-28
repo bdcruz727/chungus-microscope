@@ -15,12 +15,13 @@ public class NoteControler : MonoBehaviour
         GameObject manager = GameObject.FindGameObjectWithTag("manager");
         hitTime = manager.GetComponent<NoteManager>().currHit;
         startTime = manager.GetComponent<NoteManager>().currStart;
-        t = hitTime / (Time.time - startTime);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        t = (((Time.time * 1000f) - (float)startTime) - ((float)hitTime - 200f))/(float)hitTime;
         gameObject.transform.position = Vector3.Lerp(spawnPoint.transform.position, despawnPoint.transform.position, t);
     }
 }

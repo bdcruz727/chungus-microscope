@@ -11,10 +11,10 @@ public class NoteManager : MonoBehaviour
     public GameObject note1Prefab;
     public GameObject note2Prefab;
     private List<int[]> hitObjects = new List<int[]>();
-    int currentTimeMs;
-    int songTimeMs;
-    int songStart;
-    int spawnLead = 800, despawnLag = 200;
+    public int currentTimeMs;
+    public int songTimeMs;
+    public int songStart;
+    int spawnLead = 200, despawnLag = 200;
     bool songPlaying = false;
 
     public int currHit, currStart;
@@ -75,12 +75,14 @@ public class NoteManager : MonoBehaviour
         //Debug.Log(currNote.GetComponent<NoteControler>().startTime);
         //currNote.GetComponent<NoteControler>().hitTime = time;
         currStart = songStart;
+        Debug.Log(time);
         currHit = time;
     }
 
     void startSong()
     {
-        songStart = currentTimeMs;
+        songStart = Mathf.RoundToInt(Time.time * 1000f);
+        Debug.Log("songStart: " + songStart);
         songPlaying = true;
     }
 
